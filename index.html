@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Molecula</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body onload = "start()">
+    <form id="menu">
+		<!-- окно для ввода формулы/названия молекулы -->
+        <input type="text" id="searchbox" placeholder="Type here..."
+			style="height:2%; width:20%; position:fixed; top:4%; left:39%;">
+		<button type="button" id="submitSearch"
+			style="height:2.35%; width:6%; position:fixed; top:4%; left:60%;"
+			onclick="getMolecula();"> Search </button>
+		<button style="height:2.35%; width:6%; position:fixed; top:4%; left:32%;"> Reset all </button>
+
+	    <!-- кнопки для переключения стилей отображения -->
+	    <input type="radio" id="ball_stick" style="position:fixed; left:16%; top:9%;"
+	        onclick="drawBallStick()" name="modes" checked>
+		<label style="height:3%; width:12%; position:fixed; left:18%; top:9%;"
+			   for="ball_stick">Ball-and-Stick</label>
+
+		<input type="radio" id="spacefill" style="position:fixed; left:34%; top:9%;"
+			   onclick="drawSpacefill()" name="modes">
+		<label style="height:3%; width:12%; position:fixed; left:36%; top:9%;"
+			   for="spacefill">Spacefill</label>
+
+		<input type="radio" id="stick" style="position:fixed; left:52%; top:9%;"
+			   onclick="drawStick()" name="modes">
+		<label style="height:3%; width:12%; position:fixed; left:54%; top:9%;"
+			   for="stick">Stick</label>
+
+		<input type="radio" id="wireframe" style="position:fixed; left:70%; top:9%;"
+			   onclick="drawWireframe()" name="modes">
+		<label style="height:3%; width:12%; position:fixed; left:72%; top:9%;"
+			   for="wireframe">Wireframe</label>
+
+<!--	    <button id="spacefill"  style="height:3%; width:12%; position:fixed; left:37%; top:9%;"-->
+<!--		    onclick="drawSpacefill();" type="button"> Spacefill </button>-->
+<!--	    <button id="stick"      style="height:3%; width:12%; position:fixed; left:51%; top:9%;"-->
+<!--		    onclick="drawMoleculaStick();" type="button"> Stick </button>-->
+<!--	    <button id="wireframe"  style="height:3%; width:12%; position:fixed; left:65%; top:9%;"-->
+<!--	        onclick="drawWireframe();" type="button"> Wireframe </button>-->
+
+	    <!-- кнопки переключения режима отображения -->
+	    <button id="view"    style="height:4%; width:14%; position:fixed; left:34%; top:14%;"> View Mode </button>
+	    <button id="compare" style="height:4%; width:14%; position:fixed; right:34%; top:14%;"> Compare Mode </button>
+    </form>
+    
+    <!-- -->
+    <div id="status" style="height:4%; width:40%; position:fixed; left:42%; top:19%;"> STATUS: WAITING FOR INIT </div>
+
+    <!-- холст для отрисовки молекулы -->
+    <canvas id="glcanvas" style="height:70%; width:80%; position:fixed; top:22%; left:10%"></canvas>
+    <!-- подключение необходимых файлов -->
+    <script type="text/javascript" src="code/main.js"></script>
+    <script type="text/javascript" src="code/parse.js"></script>
+    <script type="text/javascript" src="code/init.js"></script>
+    <script type="text/javascript" src="code/stick.js"></script>
+    <script type="text/javascript" src="code/ballStick.js"></script>
+    <script type="text/javascript" src="code/spacefill.js"></script>
+    <script type="text/javascript" src="code/wireframe.js"></script>
+	<script type="text/javascript" src="code/camera.js"></script>
+	<script type="text/javascript" src="code/mouseControl.js"></script>
+
+    <!-- скрипты three.js -->
+    <script type="text/javascript" src="three.js"></script>
+
+</body>
+</html>
